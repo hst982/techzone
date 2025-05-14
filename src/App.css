@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --primary-color: #2b92e4;
+  --color-brand-400: #7592ff;
+  --color-brand-500: #465fff;
+  --color-brand-50: #ecf3ff;
+  --second-color: #ff6b00;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --white-color: #fff;
+
+  --background-admin-color: rgb(23, 24, 33);
+  --background-card-admin-color: rgb(43, 43, 54);
+}
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-logo: 'Permanent Marker', cursive;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  background-color: var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+}
+
+.logo_text {
+  background: -webkit-linear-gradient(45deg, var(--primary-color), #4de07e 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon {
+  color: #99a1af;
+}
+
+.menu-item-active,
+.submenu-item-active {
+  background-color: var(--color-brand-50);
+  color: var(--primary-color);
+}
+
+.menu-item-active,
+.submenu-item-active {
+  &:is(.dark *) {
+    color: var(--color-brand-400);
+    background-color: color-mix(
+      in oklab,
+      var(--color-brand-500) 12%,
+      transparent
+    );
+  }
+}
+
+.menu-item-active > .icon,
+.submenu-item-active > .icon {
+  color: var(--primary-color);
+}
+
+.menu-item-active > .icon,
+.submenu-item-active > .icon {
+  &:is(.dark *) {
+    color: var(--color-brand-400);
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
