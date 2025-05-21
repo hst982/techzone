@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import PageMeta from '@/components/common/PageMeta';
-import Header from '@/features/dashboard/components/header';
-import Sidebar from '@/features/dashboard/layouts/Sidebar';
-import { SidebarProvider } from '@/features/dashboard/context/SidebarContext';
-import Backdrop from '@/features/dashboard/layouts/Backdrop';
+import PageMeta from '@/components/common/PageMeta'
+import Header from '@/features/dashboard/components/Header'
+import Sidebar from '@/features/dashboard/components/SideBar/Sidebar'
+import { SidebarProvider } from '@/features/dashboard/context/SidebarContext'
+import Backdrop from '@/features/dashboard/components/SideBar/Backdrop'
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <>
@@ -27,5 +27,5 @@ export default function DashboardLayout({
         </div>
       </SidebarProvider>
     </>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import { Link } from 'react-router';
+import { Link } from 'react-router'
 
 interface BreadcrumbProps {
-  pageTitle: string;
+  pageTitle: string
 }
 
 const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
@@ -45,7 +45,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
         </ol>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default PageBreadcrumb;
+export default PageBreadcrumb

@@ -55,21 +55,19 @@ h4 {
 .submenu-item-active {
   &:is(.dark *) {
     color: var(--color-brand-400);
-    background-color: color-mix(
-      in oklab,
-      var(--color-brand-500) 12%,
-      transparent
-    );
+    background-color: color-mix(in oklab,
+        var(--color-brand-500) 12%,
+        transparent);
   }
 }
 
-.menu-item-active > .icon,
-.submenu-item-active > .icon {
+.menu-item-active>.icon,
+.submenu-item-active>.icon {
   color: var(--primary-color);
 }
 
-.menu-item-active > .icon,
-.submenu-item-active > .icon {
+.menu-item-active>.icon,
+.submenu-item-active>.icon {
   &:is(.dark *) {
     color: var(--color-brand-400);
   }

@@ -1,10 +1,10 @@
-import PageMeta from '@/components/common/PageMeta';
-import React from 'react';
+import PageMeta from '@/components/common/PageMeta'
+import React from 'react'
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <>
@@ -13,5 +13,5 @@ export default function DashboardLayout({
         {children}
       </div>
     </>
-  );
+  )
 }

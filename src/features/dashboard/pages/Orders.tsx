@@ -1,5 +1,5 @@
 function Orders() {
-  return <h2>Orders</h2>;
+  return <h2>Orders</h2>
 }
 
-export default Orders;
+export default Orders
