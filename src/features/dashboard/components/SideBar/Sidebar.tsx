@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import {
   RectangleStackIcon,
   Squares2X2Icon,
@@ -6,9 +6,9 @@ import {
   EllipsisHorizontalIcon,
 } from '@heroicons/react/24/outline'
 import { useSidebar } from '@/features/dashboard/context/SidebarContext'
-import logo from '@/assets/logo.svg'
 import SidebarItem from '@/features/dashboard/components/SideBar/SidebarItem'
 import { useEffect, useState } from 'react'
+import SidebarHeader from '@/features/dashboard/components/SideBar/SidebarHeader'
 
 type NavItem = {
   name: string
@@ -58,17 +58,6 @@ const sideBarItems: NavItem[] = [
 export default function Sidebar() {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar()
 
-  const sidebarWidth =
-    isExpanded || isMobileOpen
-      ? 'w-[290px]'
-      : isHovered
-        ? 'w-[290px]'
-        : 'w-[90px]'
-
-  const sidebarVisibility = isMobileOpen
-    ? 'translate-x-0'
-    : '-translate-x-full lg:translate-x-0'
-
   const location = useLocation()
   const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null)
 
@@ -81,27 +70,12 @@ export default function Sidebar() {
   }, [location.pathname])
   return (
     <aside
-      className={`sidebar group fixed top-0 left-0 z-9999 h-screen lg:static ${sidebarWidth} ${sidebarVisibility} -translate-x-full border-r border-gray-200 bg-white px-5 text-[#333] transition-all duration-300 ease-in-out lg:translate-x-0 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300`}
+      className={`sidebar group fixed top-0 left-0 z-9999 h-screen lg:static ${isExpanded || isMobileOpen || isHovered ? 'w-[290px]' : 'w-[90px]'} ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} -translate-x-full border-r border-gray-200 bg-white px-5 text-[#333] transition-all duration-300 ease-in-out lg:translate-x-0 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300`}
       onMouseEnter={() => !isExpanded && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className='sidebar-header py-8'>
-        <Link
-          to='/admin/dashboard'
-          className='font-logo flex text-4xl font-bold tracking-wider'
-        >
-          <img
-            src={logo}
-            alt='TechZone'
-            className={`${isExpanded || isHovered || isMobileOpen ? 'hidden' : 'block'}`}
-          />
-          <span
-            className={`logo_text ${isExpanded || isHovered || isMobileOpen ? 'block' : 'hidden'} opacity-0 lg:opacity-100`}
-          >
-            TechZone
-          </span>
-        </Link>
-      </div>
+      <SidebarHeader />
+
       <div className='no-scrollbar flex h-full flex-col overflow-y-auto duration-300 ease-linear'>
         <div className='sidebar-content'>
           {isExpanded || isHovered || isMobileOpen ? (

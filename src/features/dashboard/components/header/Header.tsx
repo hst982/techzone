@@ -47,7 +47,9 @@ function Header() {
             <EllipsisHorizontalIcon className='h-6 w-6 text-gray-400' />
           </button>
         </div>
-        <div className='shadow-theme-md hidden w-full items-center justify-between gap-4 px-5 py-4 lg:flex lg:justify-end lg:px-0 lg:shadow-none'>
+        <div
+          className={`${isApplicationMenuOpen ? 'flex' : 'hidden'} shadow-theme-md w-full items-center justify-between gap-4 px-5 py-4 lg:flex lg:justify-end lg:px-0 lg:shadow-none`}
+        >
           <div className='2xsm:gap-3 flex items-center gap-2'>
             <ThemeToggleButton />
           </div>
