@@ -4,7 +4,7 @@ import PageMeta from '@/components/common/PageMeta'
 import Sidebar from '@/features/dashboard/components/SideBar/Sidebar'
 import { SidebarProvider } from '@/features/dashboard/context/SidebarContext'
 import Backdrop from '@/features/dashboard/components/SideBar/Backdrop'
-import Header from '@/features/dashboard/components/Header'
+import Header from '@/features/dashboard/components/Header/Header'
 
 export default function DashboardLayout({
   children,
