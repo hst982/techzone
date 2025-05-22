@@ -1,5 +1,5 @@
 import { useSidebar } from '@/features/dashboard/context/SidebarContext'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 import logo from '@/assets/logo.svg'
 

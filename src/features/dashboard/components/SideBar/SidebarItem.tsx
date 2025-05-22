@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { useEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
 import { AnimatePresence } from 'framer-motion'
 import { useSidebar } from '@/features/dashboard/context/SidebarContext'
 import SidebarSubItem from '@/features/dashboard/components/SideBar/SidebarSubItem'
