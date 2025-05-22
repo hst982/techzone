@@ -15,6 +15,7 @@ const privateRoutes = [
   {
     path: config.routes.dashboard,
     component: Dashboard,
+    layout: DashboardLayout,
   },
   {
     path: config.routes.products,
