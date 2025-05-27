@@ -182,13 +182,39 @@ body {
   background-color: var(--background-color);
 }
 
-/* h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-montserrat);
-  font-weight: 600;
-} */
+#chartTwo .apexcharts-text.apexcharts-datalabel-value {
+  &:is(.dark *) {
+    fill:
+      color-mix(in oklab, var(--color-white) 90%, transparent) !important;
+  }
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  &:is(.dark *) {
+    border-color: var(--color-gray-800) !important;
+  }
+}
+
+.apexcharts-gridline {
+  &:is(.dark *) {
+    stroke: var(--color-gray-800) !important;
+  }
+}
+
+.apexcharts-text {
+  fill: var(--color-gray-700) !important;
+}
+
+.apexcharts-text {
+  &:is(.dark *) {
+    fill: var(--color-gray-400) !important;
+  }
+}
+
+.apexcharts-legend-text {
+  @apply text-gray-700 dark:text-gray-400;
+}
+
 
 .logo_text {
   background: -webkit-linear-gradient(45deg, var(--primary-color), #4de07e 80%);

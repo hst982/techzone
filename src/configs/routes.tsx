@@ -4,8 +4,8 @@ interface RouterPaths {
   //   nhóm Dashboard
   dashboard: string
   //   nhóm sản phẩm
-  products: string
-  addProduct: string
+  inventory: string
+  addInventory: string
   collections: string
   addCollection: string
   giftCards: string
@@ -28,8 +28,8 @@ const routes: Readonly<RouterPaths> = {
   //   nhóm Dashboard
   dashboard: '/admin/dashboard',
   //   nhóm sản phẩm
-  products: '/admin/products',
-  addProduct: '/admin/products/add_news',
+  inventory: '/admin/inventory',
+  addInventory: '/admin/inventory/add_news',
   collections: '/admin/collections',
   addCollection: '/admin/collections/add_news',
   giftCards: '/admin/gift_cards',

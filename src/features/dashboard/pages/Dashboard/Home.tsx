@@ -2,6 +2,7 @@ import PageMeta from '@/components/common/PageMeta'
 import EcommerceMetrics from '@/features/dashboard/components/ecommerce/EcommerceMetrics'
 import MonthlySalesChart from '@/features/dashboard/components/ecommerce/MonthlySalesChart'
 import MonthlyTarget from '@/features/dashboard/components/ecommerce/MonthlyTarget'
+import SaleOverview from '@/features/dashboard/components/ecommerce/SaleOverview'
 import PageBreadcrumb from '@/features/dashboard/components/PageBreadCrumb'
 
 export default function Home() {
@@ -18,8 +19,9 @@ export default function Home() {
         <div className='col-span-12 xl:col-span-5'>
           <MonthlyTarget />
         </div>
-        <div className='rounded-2xl border border-gray-200 bg-white px-5 pt-5 pb-5 sm:px-6 sm:pt-6 dark:border-gray-800 dark:bg-white/[0.03]'>
-          div full
+
+        <div className='col-span-12'>
+          <SaleOverview />
         </div>
       </div>
     </div>

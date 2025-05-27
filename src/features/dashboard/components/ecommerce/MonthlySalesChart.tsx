@@ -62,7 +62,6 @@ export default function MonthlySalesChart() {
       },
     },
     grid: {
-      borderColor: 'rgba(0, 0, 0, 0.09)', // Màu mờ
       yaxis: {
         lines: {
           show: true,

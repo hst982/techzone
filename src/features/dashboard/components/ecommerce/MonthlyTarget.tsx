@@ -7,7 +7,7 @@ export default function MonthlyTarget() {
   const options: ApexOptions = {
     colors: ['#465FFF'],
     chart: {
-      fontFamily: 'Outfit, sans-serif',
+      fontFamily: 'Inter, sans-serif',
       type: 'radialBar',
       height: 330,
       sparkline: {
@@ -64,9 +64,10 @@ export default function MonthlyTarget() {
             </p>
           </div>
         </div>
-        <div className='relative'>
-          <div className='max-h-[330px]' id='chartDarkStyle'>
+        <div className='max-h-195px] relative'>
+          <div className='h-full dark:text-white/90' id='chartDarkStyle'>
             <Chart
+              id='chartTwo'
               options={options}
               series={series}
               type='radialBar'

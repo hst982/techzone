@@ -19,10 +19,12 @@ export default function DashboardLayout({
           <Sidebar />
           <Backdrop />
           <div className='relative flex flex-1 flex-col overflow-x-hidden overflow-y-auto'>
-            <Header />
-            <div className='mx-auto max-w-(--breakpoint-2xl) p-4 md:p-6'>
-              {children}
-            </div>
+            <main>
+              <Header />
+              <div className='mx-auto max-w-(--breakpoint-2xl) p-4 md:p-6'>
+                {children}
+              </div>
+            </main>
           </div>
         </div>
       </SidebarProvider>

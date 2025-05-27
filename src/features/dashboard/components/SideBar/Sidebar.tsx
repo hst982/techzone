@@ -4,6 +4,7 @@ import {
   Squares2X2Icon,
   InboxIcon,
   EllipsisHorizontalIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import { useSidebar } from '@/features/dashboard/context/SidebarContext'
 import SidebarItem from '@/features/dashboard/components/SideBar/SidebarItem'
@@ -30,6 +31,10 @@ const sideBarItems: NavItem[] = [
     icon: <RectangleStackIcon className='h-6 w-6' />,
     subItems: [
       {
+        name: 'Inventory',
+        path: '/admin/inventory',
+      },
+      {
         name: 'Collections',
         path: '/admin/collections',
       },
@@ -50,6 +55,20 @@ const sideBarItems: NavItem[] = [
       {
         name: 'Orders List',
         path: '/admin/orders',
+      },
+    ],
+  },
+  {
+    name: 'Manager Users',
+    icon: <UserGroupIcon className='h-6 w-6' />,
+    subItems: [
+      {
+        name: 'Profile',
+        path: '/admin/profile',
+      },
+      {
+        name: 'Users',
+        path: '/admin/users',
       },
     ],
   },
