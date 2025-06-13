@@ -1,7 +1,6 @@
 import {
   AdjustmentsHorizontalIcon,
   PlusIcon,
-  CheckIcon,
   PencilIcon,
   TrashIcon,
 } from '@heroicons/react/24/outline'
@@ -18,6 +17,8 @@ import { formatCurrency } from '@/utils/formatCurrency'
 import Button from '@/components/ui/button/Button'
 import { CardBox, CardHeader } from '@/features/dashboard/components/CardBox'
 import SearchBox from '@/features/dashboard/components/Search'
+import { useState } from 'react'
+import Checkbox from '@/features/dashboard/components/form/input/Checkbox'
 
 type dataType = {
   id: string
@@ -33,6 +34,17 @@ type ProductsListProps = {
 }
 
 export default function ProductsList(data: ProductsListProps) {
+  const [isCheckedAll, setIsCheckedAll] = useState(true)
+  const [checkedItems, setCheckedItems] = useState<string[]>([])
+
+  const handleCheckboxChange = (id: string) => {
+    setCheckedItems(
+      (prev) =>
+        prev.includes(id)
+          ? prev.filter((itemId) => itemId !== id) // bỏ đi nếu đã tick
+          : [...prev, id], // thêm vào nếu chưa tick
+    )
+  }
   return (
     <CardBox>
       <CardHeader title='Products List'>
@@ -43,7 +55,7 @@ export default function ProductsList(data: ProductsListProps) {
               <AdjustmentsHorizontalIcon className='h-5 w-5' />
               filter
             </Button>
-            <Button variant='success' size='sm'>
+            <Button to='/admin/inventory/add_news' variant='success' size='sm'>
               <PlusIcon className='h-5 w-5' />
             </Button>
           </div>
@@ -65,16 +77,13 @@ export default function ProductsList(data: ProductsListProps) {
                   <div className='flex items-center'>
                     <label
                       htmlFor='checkAll'
-                      className='flex items-center gap-3'
+                      className='flex cursor-pointer items-center gap-3'
                     >
-                      <input
-                        type='checkbox'
+                      <Checkbox
                         id='checkAll'
-                        className='peer hidden'
+                        checked={isCheckedAll}
+                        onChange={setIsCheckedAll}
                       />
-                      <div className='peer-checked:border-brand-500 peer-checked:dark:border-brand-500 peer-checked:bg-brand-500 flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border-[1.25px] border-gray-300 bg-white text-transparent peer-checked:text-white dark:border-gray-700 dark:bg-white/0'>
-                        <CheckIcon className='h-4 w-4' strokeWidth={3} />
-                      </div>
                       <span className='text-theme-xs font-medium text-gray-500 dark:text-gray-400'>
                         Product ID
                       </span>
@@ -131,22 +140,12 @@ export default function ProductsList(data: ProductsListProps) {
                 <TableRow key={item.id}>
                   <TableCell className='px-5 py-4 sm:px-6'>
                     <div className='flex items-center'>
-                      <label
-                        htmlFor={item.id}
-                        className='flex items-center gap-3'
-                      >
-                        <input
-                          type='checkbox'
-                          id={item.id}
-                          className='peer hidden'
-                        />
-                        <div className='peer-checked:border-brand-500 peer-checked:dark:border-brand-500 peer-checked:bg-brand-500 flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border-[1.25px] border-gray-300 bg-white text-transparent peer-checked:text-white dark:border-gray-700 dark:bg-white/0'>
-                          <CheckIcon className='h-4 w-4' strokeWidth={3} />
-                        </div>
-                        <span className='text-theme-sm block font-semibold text-gray-700 dark:text-gray-400'>
-                          {item.id}
-                        </span>
-                      </label>
+                      <Checkbox
+                        id={item.id}
+                        checked={checkedItems.includes(item.id)}
+                        onChange={() => handleCheckboxChange(item.id)}
+                        label={item.id}
+                      />
                     </div>
                   </TableCell>
                   <TableCell className='px-5 py-4 sm:px-6'>
